@@ -7,14 +7,30 @@
     <title>Noroff FED2 JS2 CA</title>
     
     <script type="module" src="/src/js/ui/auth/login.js" defer></script>
+    <script type="module" src="/src/js/api/profile/logout.js" defer></script>
+    <script type="module" src="/src/js/api/profile/information.js" defer></script>
+
   </head>
+
   <body>
+    <main>
+      <section>
 
-    <h1>Profile</h1>
+        <h1>Profile</h1>
 
-    <form name="updateProfile">
-      <button>Update Profile</button>
-    </form>
+        <div id="name"></div>
+        <div id="bio"></div>
+        <div id="avatar"></div>
+        <div id="banner"></div>
+        <div id="email"></div>
 
+        <form name="updateProfile">
+          <button>Update Profile</button>
+        </form>
+
+        <button id="logoutButton">Logout</button>
+
+      </section>
+    </main>
   </body>
 </html>

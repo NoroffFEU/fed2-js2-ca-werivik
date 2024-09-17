@@ -37,7 +37,7 @@ export const API_AUTH_LOGIN = `${API_AUTH}/login`;
 
 export const API_AUTH_REGISTER = `${API_AUTH}/register`;
 
-export const API_AUTH_KEY = `${API_AUTH}/create-api-key`;
+export const API_AUTH_KEY = `${API_AUTH}/f7d9660d-4dba-4b16-82c6-1a4669e99612`;
 
 export const API_SOCIAL = `${API_BASE}/social`;
 
