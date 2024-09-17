@@ -4,13 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
-    <script type="module" src="/src/app.js"></script>
+
+    <script type="module" src="/src/js/api/post/create.js" defer></script>
+  
   </head>
   <body>
-    <h1>Create Post</h1>
 
-    <form name="createPost">
-      <button>Create Post</button>
-    </form>
+    <main>
+      <section>
+
+        <h1>Create Post</h1>
+
+        <form id="postForm" name="createPost">
+          <div>
+            <label for="postTitle">Title:</label>
+            <input type="text" id="postTitle" name="title" required />
+          </div>
+          <div>
+            <label for="postBody">Body:</label>
+            <textarea id="postBody" name="body" rows="4" cols="50"></textarea>
+          </div>
+          <div>
+            <label for="postTags">Tags (comma-separated):</label>
+            <input type="text" id="postTags" name="tags" />
+          </div>
+          <div>
+            <label for="postMediaUrl">Media URL:</label>
+            <input type="url" id="postMediaUrl" name="mediaUrl" />
+          </div>
+          <div>
+            <label for="postMediaAlt">Media Alt Text:</label>
+            <input type="text" id="postMediaAlt" name="mediaAlt" />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+
+      </section>
+    </main>
+
   </body>
 </html>

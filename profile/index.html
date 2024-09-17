@@ -10,6 +10,10 @@
     <script type="module" src="/src/js/api/profile/logout.js" defer></script>
     <script type="module" src="/src/js/api/profile/information.js" defer></script>
 
+    <script type="module" src="/src/js/api/post/update.js" defer></script>
+
+    <link rel="stylesheet" href="/src/css/profile.css">
+
   </head>
 
   <body>
@@ -18,17 +22,21 @@
 
         <h1>Profile</h1>
 
-        <div id="name"></div>
-        <div id="bio"></div>
-        <div id="avatar"></div>
-        <div id="banner"></div>
-        <div id="email"></div>
+        <div class="profile-info">
+          <div id="name"></div>
+          <div id="bio"></div>
+          <div id="avatar"></div>
+          <div id="banner"></div>
+          <div id="email"></div>
+        </div>
 
-        <form name="updateProfile">
-          <button>Update Profile</button>
+        <form name="updateProfile"></form>
+          <button>Update Profile</button class="update">
         </form>
 
-        <button id="logoutButton">Logout</button>
+        <button id="makePost" class="makepost">Make a Post</button>
+
+        <button id="logoutButton" class="logoutbutton">Logout</button>
 
       </section>
     </main>

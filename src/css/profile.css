@@ -1,0 +1,17 @@
+body {
+    overflow-x: hidden;
+}
+
+main {
+    padding: 25px;
+
+    section {
+        .profile-info {
+            margin-bottom: 50px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+    }
+}

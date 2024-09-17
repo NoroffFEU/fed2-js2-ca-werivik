@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const bannerDiv = document.getElementById("banner");
     const bioDiv = document.getElementById("bio");
     const avatarDiv = document.getElementById("avatar");
+    const makePostButton = document.getElementById('makePost');
 
     if (!nameDiv || !emailDiv || !bannerDiv || !bioDiv || !avatarDiv) {
         console.error("One or more required elements not found.");
@@ -50,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const updateUserInfo = async () => {
         const data = await fetchUserData();
+        
         if (data && data.data) {
             const userData = data.data;
 
@@ -82,4 +84,11 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     updateUserInfo();
+
+    if (makePostButton) {
+        makePostButton.addEventListener('click', () => {
+            window.location.href = '/post/create/index.html';
+        });
+    }
+
 });
