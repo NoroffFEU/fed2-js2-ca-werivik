@@ -27,7 +27,7 @@ export async function createPost({ title, body = '', tags = [], media = {} }) {
         }
 
         const data = await response.json();
-        return data:
+        return data;
     } 
     
     catch (error) {
