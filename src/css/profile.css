@@ -14,4 +14,21 @@ main {
             gap: 7px;
         }
     }
+
+    .create-post {
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            align-items: flex-start;
+
+            div {
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+            }
+        }
+    }
 }
