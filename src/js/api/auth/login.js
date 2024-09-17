@@ -1,6 +1,6 @@
 //export async function login({ email, password }) {}
 
-import { API_AUTH_LOGIN } from "../constant.js";
+import { API_AUTH_LOGIN } from "../constants.js";
 import { headers } from "../headers.js";
 
 export class AuthService {
@@ -9,6 +9,7 @@ export class AuthService {
     }
 
     async login(email, password) {
+
         const response = await fetch(this.apiUrl, {
             method: "POST",
             headers: headers(),
@@ -18,6 +19,8 @@ export class AuthService {
         const data = await response.json();
 
         if(response.ok) {
+
+            window.location.href = '/profile/index.html';
             return data;
         }
 
@@ -26,3 +29,27 @@ export class AuthService {
         }
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
+    const authService = new AuthService();
+
+    if (loginForm) {
+
+        loginForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                await authService.login(email, password);
+            }
+
+            catch (error) {
+                console.error('Login error:', error);
+                alert(error.message);
+            }
+        });
+    }
+});

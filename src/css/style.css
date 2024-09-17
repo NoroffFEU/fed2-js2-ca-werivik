@@ -19,7 +19,7 @@ main {
         justify-content: center;
         align-items: center;
 
-        .filloutform {
+        .registerform, .loginform {
             background-color: rgb(202, 223, 248);
             padding: 25px;
             border-radius: 10px;
@@ -36,6 +36,26 @@ main {
             gap: 15px;
 
             width: 200px;
+
+            input {
+                width: 200px;
+            }
+        }
+    }
+
+    .homepage {
+        h1 {
+            position: absolute;
+            left: 1000%;
+        }
+
+        .login-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+            margin-bottom: 25px;
+            margin-top: 25px;
         }
     }
 }
