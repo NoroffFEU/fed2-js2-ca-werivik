@@ -20,8 +20,9 @@ export class AuthService {
 
         if (response.ok) {
             localStorage.setItem("username", data.data.name);
-            localStorage.setItem("token", data.data.accessToken);
+            localStorage.setItem("accessToken", data.data.accessToken);
             window.location.href = '/profile/index.html';
+            
             return data;
         } 
         
@@ -36,9 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const authService = new AuthService();
 
     if (loginForm) {
+
         loginForm.addEventListener('submit', async (event) => {
             event.preventDefault();
-
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
