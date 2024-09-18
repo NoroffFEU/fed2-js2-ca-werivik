@@ -6,12 +6,13 @@ import { headers } from "../headers.js";
 export async function createPost({ title, body = '', tags = [], media = {} }) {
     
     try {
+
         if (!title || !body) {
             throw new Error("Title and body are required.");
         }
 
         const mediaData = media.url ? { url: media.url, alt: media.alt || '' } : undefined;
-
+       
         const postData = {
             title,
             body,
@@ -19,8 +20,8 @@ export async function createPost({ title, body = '', tags = [], media = {} }) {
             media: mediaData
         };
 
-        const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-        
+        const token = localStorage.getItem('accessToken') || sessionStorage.getItem('accessToken');
+
         if (!token) {
             throw new Error("No authentication token found.");
         }
@@ -53,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const postForm = document.getElementById('postForm');
 
     if (postForm) {
+       
         postForm.addEventListener('submit', async (event) => {
             event.preventDefault();
 
@@ -83,13 +85,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('Post created successfully:', result);
 
                 alert('Post created successfully! Redirecting to the posts page...');
+                
                 window.location.href = '/post/index.html';
             } 
             
             catch (error) {
                 console.error('Error submitting post form:', error);
+               
                 alert(`Failed to create post: ${error.message}`);
             }
         });
     }
 });
+

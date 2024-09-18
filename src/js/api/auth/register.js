@@ -13,6 +13,7 @@ import { API_AUTH_REGISTER } from "../constants.js";
 import { headers } from "../headers.js";
 
 class User {
+
   constructor(name, email, password, bio = "", banner = "", avatar = "") {
     this.name = name;
     this.email = email;
@@ -24,26 +25,32 @@ class User {
 
   static validateEmail(email) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
     return emailPattern.test(email) && email.endsWith('.no');
   }
 
   static validatePassword(password) {
     const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    
     return passwordPattern.test(password);
   }
 
   async register() {
+
     if (!User.validateEmail(this.email)) {
       alert('Invalid email address. Must end with .no');
+     
       return;
     }
   
     if (!User.validatePassword(this.password)) {
       alert('Invalid password. Must be at least 8 characters long and include both letters and numbers');
+     
       return;
     }
   
     try {
+
       const payload = {
         name: this.name,
         email: this.email,
@@ -62,6 +69,7 @@ class User {
       });
   
       if (!response.ok) {
+
         const errorResponse = await response.json();
         console.error('Error response:', errorResponse);
   
@@ -77,6 +85,7 @@ class User {
       }
   
       const result = await response.json();
+
       alert('Registration successful! Redirecting to login page.');
       window.location.href = '/auth/login/index.html';
       
@@ -87,6 +96,7 @@ class User {
       console.error('Error during registration:', error);
       alert('An unexpected error occurred during registration');
     }
+
   }
 }
 
@@ -94,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const registerForm = document.getElementById('registerForm');
   
   if (registerForm) {
+    
     registerForm.addEventListener('submit', async (event) => {
       event.preventDefault();
 
@@ -105,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!nameInput || !emailInput || !passwordInput) {
         console.error('One or more required form fields are missing.');
         alert('Please make sure all required fields are filled out.');
+       
         return;
       }
 

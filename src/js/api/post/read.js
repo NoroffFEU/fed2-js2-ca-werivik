@@ -11,6 +11,7 @@ const postsPerPage = 12;
 export async function readPosts(page = 1) {
    
     try {
+        
         const token = localStorage.getItem('token') || sessionStorage.getItem('token');
         console.log("Retrieved Token:", token);
 
@@ -46,6 +47,7 @@ export async function readPosts(page = 1) {
 }
 
 function updatePaginationControls(totalPages) {
+   
     const prevButton = document.getElementById('prevPage');
     const nextButton = document.getElementById('nextPage');
     const pageNumbersContainer = document.getElementById('pageNumbers');
@@ -85,11 +87,13 @@ async function loadPosts() {
 
         if (!postsContainer) {
             console.error('Posts container not found.');
+            
             return;
         }
 
         if (posts.length === 0) {
             postsContainer.innerHTML = '<p>No posts available.</p>';
+            
             return;
         }
 
@@ -97,7 +101,8 @@ async function loadPosts() {
             const username = post.author ? post.author.name : 'Unknown User';
 
             return `
-                <div class="post" id="post-${post.id}">
+
+                <div class="post" id="post-${post.id}" data-id="${post.id}">
                     <div class="post-creater">
                         <h3>${username}</h3>
                     </div>
@@ -117,9 +122,18 @@ async function loadPosts() {
                     </div>
                 </div>
             `;
+        }).join('');
+
+        postsContainer.innerHTML = postsHtml;
+
+        document.querySelectorAll('.post').forEach(postElement => {
+            
+            postElement.addEventListener('click', (event) => {
+                const postId = postElement.getAttribute('data-id');
+                window.location.href = `/post/single-post/index.html?id=${postId}`;
+            });
         });
 
-        postsContainer.innerHTML = postsHtml.join('');
         updatePaginationControls(Math.ceil(100 / postsPerPage));
     } 
     
@@ -128,6 +142,7 @@ async function loadPosts() {
         postsContainer.innerHTML = '<p>Failed to load posts. Please try again later.</p>';
     }
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
     loadPosts();

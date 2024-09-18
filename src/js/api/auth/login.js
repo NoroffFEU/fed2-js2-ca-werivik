@@ -4,6 +4,7 @@ import { API_AUTH_LOGIN } from "../constants.js";
 import { headers } from "../headers.js";
 
 export class AuthService {
+
     constructor() {
         this.apiUrl = API_AUTH_LOGIN;
     }
@@ -19,10 +20,12 @@ export class AuthService {
         const data = await response.json();
 
         if (response.ok) {
+
             localStorage.setItem("username", data.data.name);
             localStorage.setItem("accessToken", data.data.accessToken);
+           
             window.location.href = '/profile/index.html';
-            
+           
             return data;
         } 
         
@@ -33,6 +36,7 @@ export class AuthService {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    
     const loginForm = document.getElementById('loginForm');
     const authService = new AuthService();
 

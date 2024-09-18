@@ -1,0 +1,31 @@
+main{
+
+    section {
+
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        .user-posts {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            gap: 25px;
+
+            .post {
+
+                background-color: pink;
+                width: 75%;
+
+                padding: 5px;
+
+                img {
+                    width: 450px;
+                }
+            }
+        }
+    }
+}
