@@ -24,49 +24,62 @@
 
         <h1>Profile</h1>
 
-        <div class="profile-info">
-
-          <div id="banner">
-            <div id="bannerImage" style="width: 100%; height: 200px; background-size: cover;"></div>
-          </div>
-
-          <div id="name" class="username"></div>
-          <div id="email"></div>
-
-          <div id="avatar-container" class="avatar-container">
-            <img id="avatar" src="" alt="Avatar" style="display: none;" />
-          </div> 
-
-          <div id="bio"></div>
-
+        <div id="banner">
+          <div id="bannerImage" style="width: 100%; height: 200px; background-size: cover;"></div>
         </div>
-        
-        <form name="updateProfile">
 
-          <div>
-            <label for="newUsername">New Username:</label>
-            <input type="text" id="newUsername" />
-          </div>
-          <div>
-            <label for="newBio">New Bio:</label>
-            <textarea id="newBio"></textarea>
-          </div>
-          <div>
-            <label for="newAvatar">New Avatar URL:</label>
-            <input type="text" id="newAvatar" />
-          </div>
-          <div>
-            <label for="newBanner">New Banner URL:</label>
-            <input type="text" id="newBanner" />
-          </div>
-          <button type="button" id="saveChanges">Save Changes</button>
+        <div class="profile-content">
+          
+          <div class="profile-info">
 
-        </form>
+            <div id="name" class="username"></div>
+            <div id="email"></div>
+  
+            <div id="avatar-container" class="avatar-container">
+              <img id="avatar" src="" alt="Avatar" style="display: none;" />
+            </div> 
+  
+            <div id="bio"></div>
+  
+          </div>
 
-        <button id="makePost" class="makepost">Make a Post</button>
-        <button id="logoutButton" class="logoutbutton">Logout</button>
+          <div class="button-options">
+            <button id="makePost" class="makepost">Make a Post</button>
+            <button id="logoutButton" class="logoutbutton">Logout</button>
+    
+            <a href="/post/index.html">See What People Have Posted!</a>
+          </div>
+          
+          <form name="updateProfile" class="update-profile">
+  
+            <h3>Edit Profile</h3>
 
-        <a href="/post/index.html">See What People Have Posted!</a>
+            <div>
+              <label for="newUsername">New Username:</label>
+              <input type="text" id="newUsername" />
+            </div>
+            <div>
+              <label for="newBio">New Bio:</label>
+              <textarea id="newBio"></textarea>
+            </div>
+            <div>
+              <label for="newAvatar">New Avatar URL:</label>
+              <input type="text" id="newAvatar" />
+            </div>
+            <div>
+              <label for="newBanner">New Banner URL:</label>
+              <input type="text" id="newBanner" />
+            </div>
+            <button type="button" id="saveChanges">Save Changes</button>
+  
+          </form>
+  
+        </div>
+
+        <div id="user-posts">
+          <h2>Your Posts</h2>
+          <p>Loading posts...</p>
+        </div>
 
       </section>
 

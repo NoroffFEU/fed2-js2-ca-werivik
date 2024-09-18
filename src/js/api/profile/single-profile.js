@@ -8,7 +8,9 @@ async function fetchProfile(name) {
     
     try {
 
-        const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+        const token = localStorage.getItem('accessToken') || sessionStorage.getItem('accessToken');
+        console.log("Retrieved Token:", token);
+
         if (!token) {
             throw new Error("No authentication token found.");
         }
@@ -40,7 +42,9 @@ async function fetchUserPosts(name) {
     
     try {
 
-        const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+        const token = localStorage.getItem('accessToken') || sessionStorage.getItem('accessToken');
+        console.log("Retrieved Token:", token);
+
         if (!token) {
             throw new Error("No authentication token found.");
         }

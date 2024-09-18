@@ -1,15 +1,19 @@
 body {
     overflow-x: hidden;
+    margin: 0;
 }
 
 main {
-    padding: 25px;
 
     section {
 
         h1 {
             position: absolute;
             left: 1000%;
+        }
+
+        .profile-content {
+            margin: 25px;
         }
 
         .profile-info {
@@ -25,6 +29,13 @@ main {
                 font-weight: bold;
             }
 
+            #banner {
+                width: 100%;
+                height: 300px;
+
+                object-fit: cover;
+            }
+
             .avatar-container {
 
                 img {
@@ -35,21 +46,33 @@ main {
                 }
             }
         }
-    }
 
-    .create-post {
-
-        form {
+        .button-options {
             display: flex;
             flex-direction: column;
-            gap: 20px;
 
-            align-items: flex-start;
+            width: 150px;
 
-            div {
-                display: flex;
-                flex-direction: row;
-                gap: 10px;
+            gap: 15px;
+        }
+
+        .update-profile {
+            margin-top: 100px;
+        }
+
+        #user-posts {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+
+            width: 100%;
+            margin-bottom: 50px;
+
+            .post {
+                background-color: pink;
+                width: 75%;
             }
         }
     }

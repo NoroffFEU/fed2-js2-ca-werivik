@@ -7,8 +7,9 @@ const postId = urlParams.get('id');
 async function fetchPostDetails(id) {
     
     try {
-        const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-        
+        const token = localStorage.getItem('accessToken') || sessionStorage.getItem('accessToken');
+        console.log("Retrieved Token:", token);
+
         if (!token) {
             throw new Error("No authentication token found.");
         }
@@ -57,13 +58,13 @@ async function renderPostDetails() {
         const reactionsCount = post._count ? post._count.reactions : 0;
 
         const postHtml = `
+
         <div class="post-detail-content">
+
             <h2>${post.title || 'Untitled'}</h2>
     
             <div class="post-creater">
                 <h3><a href="/profile/single-profile/index.html?name=${encodeURIComponent(post.author.name)}">${username}</a></h3>
-                <p>Created: ${new Date(post.created).toLocaleDateString()}</p>
-                ${post.updated ? `<p>Updated: ${new Date(post.updated).toLocaleDateString()}</p>` : ''}
             </div>
     
             <p>${post.body || 'No content available.'}</p>
@@ -75,7 +76,12 @@ async function renderPostDetails() {
             <div class="post-tags">
                 ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
             </div>
-    
+
+            <div class="post-dates">
+                <p>Created: ${new Date(post.created).toLocaleDateString()}</p>
+                ${post.updated ? `<p>Updated: ${new Date(post.updated).toLocaleDateString()}</p>` : ''}
+            </div>
+            
             <div class="post-meta">
                 <p>Comments: ${commentsCount}</p>
                 <p>Reactions: ${reactionsCount}</p>

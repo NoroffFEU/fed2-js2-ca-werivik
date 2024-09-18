@@ -12,18 +12,17 @@ export async function readPosts(page = 1) {
    
     try {
         
-        const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+        const token = localStorage.getItem('accessToken') || sessionStorage.getItem('accessToken');
         console.log("Retrieved Token:", token);
 
         if (!token) {
-            throw new Error("No authentication token found.");
+            console.error('No authentication token found');
+            return null;
         }
-
-        const requestHeaders = headers(token);
 
         const response = await fetch(`${API_SOCIAL_POSTS}?_author=true&page=${page}&limit=${postsPerPage}`, {
             method: 'GET',
-            headers: requestHeaders
+            headers: headers(token)
         });
 
         if (!response.ok) {
