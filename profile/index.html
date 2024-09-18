@@ -9,6 +9,7 @@
     <script type="module" src="/src/js/ui/auth/login.js" defer></script>
     <script type="module" src="/src/js/api/profile/logout.js" defer></script>
     <script type="module" src="/src/js/api/profile/information.js" defer></script>
+    <script type="module" src="/src/js/api/profile/update.js" defer></script>
 
     <script type="module" src="/src/js/api/post/update.js" defer></script>
 
@@ -17,30 +18,59 @@
   </head>
 
   <body>
+
     <main>
       <section>
 
         <h1>Profile</h1>
 
         <div class="profile-info">
-          <div id="name"></div>
-          <div id="bio"></div>
-          <div id="avatar"></div>
-          <div id="banner"></div>
-          <div id="email"></div>
-        </div>
 
-        <form name="updateProfile"></form>
-          <button>Update Profile</button class="update">
+          <div id="banner">
+            <div id="bannerImage" style="width: 100%; height: 200px; background-size: cover;"></div>
+          </div>
+
+          <div id="name" class="username"></div>
+          <div id="email"></div>
+
+          <div id="avatar-container" class="avatar-container">
+            <img id="avatar" src="" alt="Avatar" style="display: none;" />
+          </div> 
+
+          <div id="bio"></div>
+
+        </div>
+        
+        <form name="updateProfile">
+
+          <div>
+            <label for="newUsername">New Username:</label>
+            <input type="text" id="newUsername" />
+          </div>
+          <div>
+            <label for="newBio">New Bio:</label>
+            <textarea id="newBio"></textarea>
+          </div>
+          <div>
+            <label for="newAvatar">New Avatar URL:</label>
+            <input type="text" id="newAvatar" />
+          </div>
+          <div>
+            <label for="newBanner">New Banner URL:</label>
+            <input type="text" id="newBanner" />
+          </div>
+          <button type="button" id="saveChanges">Save Changes</button>
+
         </form>
 
         <button id="makePost" class="makepost">Make a Post</button>
-
         <button id="logoutButton" class="logoutbutton">Logout</button>
 
         <a href="/post/index.html">See What People Have Posted!</a>
 
       </section>
+
     </main>
   </body>
+
 </html>

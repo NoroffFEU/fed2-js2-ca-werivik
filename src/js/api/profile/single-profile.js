@@ -91,13 +91,17 @@ async function renderProfile() {
         const profileHtml = `
 
             <div class="profile-content">
-                <h2>${profile.name || 'No name available'}</h2>
                 <div class="profile-banner">
                     ${profile.banner ? `<img src="${profile.banner.url}" alt="${profile.banner.alt}" />` : 'No banner available'}
                 </div>
+
+                <div class="profile-name-avatar">
                 <div class="profile-avatar">
                     ${profile.avatar ? `<img src="${profile.avatar.url}" alt="${profile.avatar.alt}" />` : 'No avatar available'}
                 </div>
+                    <h2>${profile.name || 'No name available'}</h2>
+                </div>
+
                 <p>${profile.bio || 'No bio available.'}</p>
                 <p>Email: ${profile.email || 'No email available.'}</p>
                 <p>Posts: ${profile._count ? profile._count.posts : 0}</p>
@@ -117,21 +121,14 @@ async function renderProfile() {
 
         const postsHtml = posts.map(post => `
             <div class="post" id="post-${post.id}">
-                
-               <h3><a href="/single-post/index.html?id=${post.id}">${post.title || 'No title available'}</a></h3>
-            
+                <h3><a href="/post/single-post/index.html?id=${post.id}">${post.title || 'No title available'}</a></h3>
                 <p>${post.body || 'No content available.'}</p>
-                
                 <div class="post-media">
                     ${post.media ? `<img src="${post.media.url}" alt="${post.media.alt}" />` : 'No media available'}
                 </div>
-
                 <p>Created: ${post.created ? new Date(post.created).toLocaleDateString() : 'No date available'}</p>
-                
                 ${post.updated ? `<p>Updated: ${new Date(post.updated).toLocaleDateString()}</p>` : ''}
-            
             </div>
-
         `).join('');
 
         userPostsContainer.innerHTML = postsHtml;

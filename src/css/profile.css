@@ -6,12 +6,34 @@ main {
     padding: 25px;
 
     section {
+
+        h1 {
+            position: absolute;
+            left: 1000%;
+        }
+
         .profile-info {
+
             margin-bottom: 50px;
 
             display: flex;
             flex-direction: column;
             gap: 7px;
+            
+            .username {
+                font-size: 35px;
+                font-weight: bold;
+            }
+
+            .avatar-container {
+
+                img {
+                    width: 250px;
+                    height: 250px;
+                    object-fit: cover;
+                    border-radius: 100%;
+                }
+            }
         }
     }
 
