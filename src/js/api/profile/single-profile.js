@@ -91,6 +91,7 @@ async function renderProfile() {
         const profileHtml = `
 
             <div class="profile-content">
+            
                 <div class="profile-banner">
                     ${profile.banner ? `<img src="${profile.banner.url}" alt="${profile.banner.alt}" />` : 'No banner available'}
                 </div>

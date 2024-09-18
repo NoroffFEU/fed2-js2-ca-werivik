@@ -20,6 +20,14 @@ main{
 
             .profile-content {
 
+                .profile-banner {
+
+                    img {
+                        width: 100%;
+                        height: 250px;
+                        object-fit: cover;
+                    }
+                }
                 .profile-name-avatar {
 
                     display: flex;
