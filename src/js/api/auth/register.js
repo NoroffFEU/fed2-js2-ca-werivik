@@ -129,4 +129,5 @@ document.addEventListener('DOMContentLoaded', () => {
       await user.register();
     });
   }
+  
 });
