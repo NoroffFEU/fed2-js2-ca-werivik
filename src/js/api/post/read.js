@@ -8,6 +8,14 @@ import { headers } from "../headers.js";
 let currentPage = 1;
 const postsPerPage = 12;
 
+
+/**
+Fetches posts from the API with pagination, fancy, including author data.
+@param {number} [page=1] - The current page number to fetch posts for.
+@returns {Promise<Object[]>} - An array of post objects, sorted by creation date.
+@throws {Error} - Throws an error if the fetch request fails or the token is not found.
+ */
+
 export async function readPosts(page = 1) {
    
     try {
@@ -45,6 +53,12 @@ export async function readPosts(page = 1) {
     }
 }
 
+
+/**
+Updates the pagination controls based on the total number of pages, doing some complicated math here guys...
+@param {number} totalPages - The total number of pages available.
+ */
+
 function updatePaginationControls(totalPages) {
    
     const prevButton = document.getElementById('prevPage');
@@ -78,6 +92,11 @@ function updatePaginationControls(totalPages) {
     });
 }
 
+
+/**
+Loads and displays posts on the page.
+@throws {Error} - If the posts cannot be loaded or displayed.
+ */
 async function loadPosts() {
     
     try {

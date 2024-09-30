@@ -4,6 +4,15 @@ import { headers } from "../headers.js";
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get('id');
 
+/**
+Fetches the details of a specific post by its ID, it includes the information such as author, comments, and reactions.
+but nothing too fancy with the comments and reactions okey??? It only fecthes the info, nothing more
+I am NOT doing level 2 course assignment.
+@param {string} id - The ID of the post to fetch.
+@returns {Promise<Object>} - The post details, including author, comments, and reactions.
+@throws {Error} - Throws an error if the request fails or no token is found.
+*/
+
 async function fetchPostDetails(id) {
     
     try {
@@ -34,6 +43,11 @@ async function fetchPostDetails(id) {
         throw error;
     }
 }
+
+/**
+Renders the post details to the DOM. Fetches the post data using its ID and updates the HTML like it should.
+@throws {Error} - Throws an error to the users face if the post details cannot be fetched or rendered.
+*/
 
 async function renderPostDetails() {
     
@@ -99,4 +113,8 @@ async function renderPostDetails() {
     }
 }
 
+
+/**
+Initializes the rendering of post details when the DOM is fully loaded.
+*/
 document.addEventListener('DOMContentLoaded', renderPostDetails);

@@ -3,6 +3,23 @@
 import { API_SOCIAL_POSTS } from "../constants.js";
 import { headers } from "../headers.js";
 
+
+/**
+Creates a new post by sending the post data to the API.
+Validates the presence of required fields (title and body tihi) before submission, 
+if the user fails to input anything in those fields it will send a error message.
+
+@param {Object} postDetails - The post details to be created.
+@param {string} postDetails.title - The title of the post (required >:( ).
+@param {string} [postDetails.body=''] - The body content of the post (required >:( ).
+@param {Array<string>} [postDetails.tags=[]] - An array of tags associated with the post (optional :) ).
+@param {Object} [postDetails.media={}] - Media information including URL and alt text (optional :) ).
+@param {string} [postDetails.media.url] - The URL of the media file (optional :) ).
+@param {string} [postDetails.media.alt] - The alt text for the media file (optional :) ).
+@returns {Promise<Object>} - The created post data from the API.
+@throws {Error} - Throws an error if post creation fails or required fields are missing.
+*/
+
 export async function createPost({ title, body = '', tags = [], media = {} }) {
     
     try {
@@ -50,10 +67,23 @@ export async function createPost({ title, body = '', tags = [], media = {} }) {
     }
 }
 
+
+/**
+Initializes the post creation form and handles form submission, slay.
+Gathers form data both required and optional, including title, body, tags, and media, and creates a new post.
+*/
+
 document.addEventListener('DOMContentLoaded', () => {
     const postForm = document.getElementById('postForm');
 
     if (postForm) {
+
+        /**
+        Handles the form submission for creating a new post.
+        Prevents default form submission and creates a new post with the form data.
+        
+        @param {Event} event - The form submission event.
+        */
        
         postForm.addEventListener('submit', async (event) => {
             event.preventDefault();

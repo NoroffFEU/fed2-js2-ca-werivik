@@ -11,6 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const makePostButton = document.getElementById('makePost');
     const postsContainer = document.getElementById('user-posts');
 
+
+    /**
+    Fetches user data from the API.
+    @returns {Promise<Object|null>} User data or null if not found, nothing in between fellas.
+     */
     const fetchUserData = async () => {
         
         try {
@@ -48,6 +53,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+
+    /**
+    Fetches posts created by a specific user.
+    @param {string} username - The username of the user who posted the post to fetch.
+    @param {string} token - The authentication token.
+    @returns {Promise<Array>} An array of posts.
+     */
     const fetchUserPosts = async (username, token) => {
        
         try {
@@ -71,6 +83,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+
+    /**
+    Updates the user information displayed on the HTML page.
+    @returns {Promise<void>}
+     */
     const updateUserInfo = async () => {
         
         const data = await fetchUserData();
@@ -94,7 +111,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Define the updatePost function here
+
+    /**
+     Updates a post with the details underneath.
+     @param {string} postId - The ID of the post to update.
+     @param {string} title - The new title of the post.
+     @param {string} body - The new body of the post.
+     @param {string} mediaUrl - The new media URL for the post.
+     @param {Array<string>} tags - The new tags for the post.
+     @returns {Promise<void>}
+     */
     const updatePost = async (postId, title, body, mediaUrl, tags) => {
         const token = localStorage.getItem('accessToken') || sessionStorage.getItem('accessToken');
         const endpoint = `${API_SOCIAL_POSTS}/${postId}`;
@@ -137,6 +163,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+
+     /**
+     Validates the data for the posts.
+     @param {string} title - The title of the post.
+     @param {string} body - The body of the post.
+     @param {string} mediaUrl - The media URL of the post.
+     @param {Array<string>} tags - The tags associated with the post.
+     @returns {boolean} True if the data is valid, false otherwise.
+     */
     const validatePostData = (title, body, mediaUrl, tags) => {
         if (!title || !body) {
             console.error('Title and body are required.');
@@ -158,6 +193,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return true;
     };
 
+
+    /**
+     Displays the user's posts on the page.
+     @param {Array} posts - The posts to display.
+     @returns {void}
+     */
     const displayPosts = (posts) => {
        
         if (posts.length === 0) {
@@ -231,6 +272,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
+
+    /**
+    Deletes a single post by it's ID.
+    @param {string} postId - The ID of the post to delete.
+    @returns {Promise<void>}
+     */
     const deletePost = async (postId) => {
         const token = localStorage.getItem('accessToken') || sessionStorage.getItem('accessToken');
         const endpoint = `${API_SOCIAL_POSTS}/${postId}`;
@@ -252,6 +299,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         } 
         
+        // Define your ass here hehe
         catch (error) {
             console.error('Error deleting post:', error.message);
         }
@@ -265,3 +313,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
