@@ -19,17 +19,6 @@ main {
         justify-content: center;
         align-items: center;
 
-        .registerform, .loginform {
-            background-color: rgb(202, 223, 248);
-            padding: 25px;
-            border-radius: 10px;
-
-            h1 {
-                padding-top: 0px;
-                margin-top: 0px;
-            }
-        }
-
         form {
             display: flex;
             flex-direction: column;

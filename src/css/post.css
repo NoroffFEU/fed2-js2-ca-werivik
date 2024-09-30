@@ -26,7 +26,7 @@ main {
                 min-width: 250px;
 
                 .post {
-                    background-color: rgb(214, 214, 217);
+                    border: solid 2px black;
                     padding: 5px;
                     border-radius: 10px;
 
