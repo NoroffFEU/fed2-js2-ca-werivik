@@ -4,6 +4,12 @@ import { headers } from "../headers.js";
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('name');
 
+
+/**
+ Fetches the profile data for a given username.
+ @param {string} name - The username to fetch the profile for.
+ @returns {Promise<Object>} The profile data.
+ */
 async function fetchProfile(name) {
     
     try {
@@ -38,6 +44,12 @@ async function fetchProfile(name) {
     }
 }
 
+
+/**
+ Fetches the posts created by a specific user.
+ @param {string} name - The username of the user whose posts to fetch.
+ @returns {Promise<Array>} An array of posts created by the user.
+ */
 async function fetchUserPosts(name) {
     
     try {
@@ -71,6 +83,11 @@ async function fetchUserPosts(name) {
     }
 }
 
+
+/**
+ Renders the user's profile and posts on the page.
+ @returns {Promise<void>}
+ */
 async function renderProfile() {
     
     try {

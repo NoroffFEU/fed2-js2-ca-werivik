@@ -10,6 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const newAvatarInput = document.getElementById("newAvatar");
     const newBannerInput = document.getElementById("newBanner");
 
+
+    /**
+    Updates the user's profile information.
+    @returns {Promise<void>}
+    */
     const updateProfile = async () => {
         
         try {

@@ -299,7 +299,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         } 
         
-        // Define your ass here hehe
         catch (error) {
             console.error('Error deleting post:', error.message);
         }
