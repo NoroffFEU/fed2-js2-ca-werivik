@@ -4,6 +4,11 @@ import { defineConfig } from "vite";
 export default defineConfig({
   appType: "mpa",
   base: "",
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+    },
+  },
   build: {
     target: "esnext",
     rollupOptions: {
@@ -20,3 +25,4 @@ export default defineConfig({
     },
   },
 });
+

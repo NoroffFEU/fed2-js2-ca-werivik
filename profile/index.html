@@ -5,13 +5,86 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
-    <script type="module" src="/src/app.js"></script>
-  </head>
-  <body>
-    <h1>Profile</h1>
+    
+    <script type="module" src="/src/js/ui/auth/login.js" defer></script>
+    <script type="module" src="/src/js/api/profile/logout.js" defer></script>
+    <script type="module" src="/src/js/api/profile/information.js" defer></script>
+    <script type="module" src="/src/js/api/profile/update.js" defer></script>
 
-    <form name="updateProfile">
-      <button>Update Profile</button>
-    </form>
+    <script type="module" src="/src/js/api/post/update.js" defer></script>
+
+    <link rel="stylesheet" href="/src/css/profile.css">
+
+  </head>
+
+  <body>
+
+    <main>
+
+      <section>
+
+        <h1>Profile</h1>
+
+        <div id="banner">
+          <div id="bannerImage" style="width: 100%; height: 200px; background-size: cover;"></div>
+        </div>
+
+        <div class="profile-content">
+          
+          <div class="profile-info">
+
+            <div id="name" class="username"></div>
+            <div id="email"></div>
+  
+            <div id="avatar-container" class="avatar-container">
+              <img id="avatar" src="" alt="Avatar" style="display: none;" />
+            </div> 
+  
+            <div id="bio"></div>
+  
+          </div>
+
+          <div class="button-options">
+            <button id="makePost" class="makepost">Make a Post</button>
+            <button id="logoutButton" class="logoutbutton">Logout</button>
+          </div>
+
+            <a href="/post/index.html">See What People Have Posted!</a>
+
+          <form name="updateProfile" class="update-profile">
+  
+            <h3>Edit Profile Here:</h3>
+
+            <div>
+              <label for="newUsername">New Username:</label>
+              <input type="text" id="newUsername" />
+            </div>
+            <div>
+              <label for="newBio">New Bio:</label>
+              <textarea id="newBio"></textarea>
+            </div>
+            <div>
+              <label for="newAvatar">New Avatar URL:</label>
+              <input type="text" id="newAvatar" />
+            </div>
+            <div>
+              <label for="newBanner">New Banner URL:</label>
+              <input type="text" id="newBanner" />
+            </div>
+            <button type="button" id="saveChanges">Save Changes</button>
+  
+          </form>
+  
+        </div>
+
+        <div id="user-posts" class="user-posts">
+          <h2>Your Posts</h2>
+          <p>Loading posts...</p>
+        </div>
+
+      </section>
+
+    </main>
   </body>
+
 </html>

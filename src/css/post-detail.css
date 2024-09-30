@@ -1,0 +1,29 @@
+body {
+    overflow-x: hidden;
+}
+
+main {
+
+    section{
+
+        .post-detail {
+
+            .post-detail-content {
+
+                .post-media {
+    
+                    img {
+                        width: 300px;
+                        height: 300px;
+                        object-fit: contain;
+                    }
+                }
+
+                .post-dates {
+                    opacity: 50%;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}

@@ -5,9 +5,38 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
-    <script type="module" src="/src/app.js"></script>
+
+    <script type="module" src="/src/js/api/post/read.js"></script>
+
+    <link rel="stylesheet" href="/src/css/post.css">
+
   </head>
+
   <body>
-    <h1>Post Page</h1>
+
+    <main>
+      <section>
+        <h1>Post Page</h1>
+
+        <a href="/profile/index.html">Go to Your Profile</a>
+
+        <div class="posts">
+          <div class="all-posts">
+
+          </div>
+        </div>
+
+        <div class="pagination">
+
+          <button id="prevPage" disabled class="prev-button">Previous</button>
+          <div id="pageNumbers" class="numbers"></div>
+          <button id="nextPage" class="next-button">Next</button>
+
+        </div>
+
+      </section>
+    </main>
+
   </body>
+
 </html>
